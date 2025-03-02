@@ -47,6 +47,12 @@ app.get("/name", function(req, res){
     res.send({ name: firstName + " " + lastName });
     });
 
+app.post("/library", function(req, res){
+    let firstName = req.body.first;
+    let lastName = req.body.last;
+
+    res.send({ name: firstName + " " + lastName });
+})
 
 
 
