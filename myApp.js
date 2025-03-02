@@ -5,6 +5,11 @@ const res = require('express/lib/response');
 let app = express();
 let absolutePath = __dirname + '/views/index.html'
 
+app.use(function(req, res, next){
+    console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
+
 app.get("/", function(req, res){
     res.sendFile(absolutePath);
 })
@@ -22,10 +27,6 @@ app.get("/json", function(req, res){
     res.json({ "message": response})
 })
 
-app.use(function(req, res, next){
-    console.log(req.method + " " + req.path + " - " + req.ip);
-    next();
-});
 
 
 
